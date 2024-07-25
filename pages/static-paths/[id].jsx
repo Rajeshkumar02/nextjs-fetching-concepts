@@ -6,18 +6,18 @@ export default function PostDetailsPage({ post, userData }) {
           <p className=" text-xl font-semibold">Static Side Props with static Paths</p>
         </div>
         <div>
-          <p className=" text-lg font-semibold underline"> {post.title}</p>
-          <p className=" mt-3 font-mono">{post.body}</p>
+          <p className=" text-lg font-semibold underline"> {post?.title}</p>
+          <p className=" mt-3 font-mono">{post?.body}</p>
           <div>
             <p className=" font-semibold mt-4 mb-1">User Details :-</p>
             <p>
-              <span className=" font-semibold">Name</span> : {userData.name}
+              <span className=" font-semibold">Name</span> : {userData?.name}
             </p>
             <p>
-              <span className=" font-semibold">Email</span> : {userData.email}
+              <span className=" font-semibold">Email</span> : {userData?.email}
             </p>
             <p>
-              <span className=" font-semibold">Phone</span> : {userData.phone}
+              <span className=" font-semibold">Phone</span> : {userData?.phone}
             </p>
           </div>
         </div>
