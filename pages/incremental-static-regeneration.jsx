@@ -1,4 +1,4 @@
-export default function IncrementalStaticRegeneartion({ posts }) {
+export default function IncrementalStaticRegeneartion({ posts,date }) {
   return (
     <div className="p-5">
       <div className=" mb-3">
@@ -6,6 +6,7 @@ export default function IncrementalStaticRegeneartion({ posts }) {
           Incremental Static Regeneartion (ISR)
         </p>
       </div>
+      {date}
       <div>
         {posts?.length > 0 ? (
           <table>
@@ -43,7 +44,7 @@ export async function getStaticProps() {
 
   const posts = await resposne.json();
   return {
-    props: { posts },
+    props: { posts,date:new Date()+"" },
     revalidate: 10,
   };
 }

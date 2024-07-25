@@ -1,11 +1,12 @@
 import Link from "next/link";
 
-export default function StaticPaths({ posts }) {
+export default function StaticPaths({ posts,date }) {
   return (
     <div className="p-5">
       <div className=" mb-3">
         <p className=" text-xl font-semibold">Static Props</p>
       </div>
+      {date}
       <div>
         {posts?.length > 0 ? (
           <table>
@@ -52,6 +53,6 @@ export async function getStaticProps() {
 
   const posts = await resposne.json();
   return {
-    props: { posts },
+    props: { posts,date:new Date()+"" },
   };
 }

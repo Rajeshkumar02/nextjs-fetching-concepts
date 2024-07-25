@@ -29,14 +29,14 @@ export default function PostDetailsPage({ post, userData }) {
 export async function getStaticPaths() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/posts`);
   const posts = await response.json();
-  const paths = posts?.map((post) => ({
+  const paths = posts?.slice(10)?.map((post) => ({
     params: {
       id: post?.id + "",
     },
   }));
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 

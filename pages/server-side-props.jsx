@@ -1,7 +1,7 @@
 import SearchInput from "@/components/searchInput";
 import Link from "next/link";
 
-export default function ServerSideProps({ posts }) {
+export default function ServerSideProps({ posts,date }) {
   return (
     <div className="p-5">
       <div className=" mb-3">
@@ -10,6 +10,9 @@ export default function ServerSideProps({ posts }) {
           <SearchInput />
         </div>
       </div>
+     {
+      date+""
+     }
       {posts?.length > 0 ? (
         <div>
           <table>
@@ -56,6 +59,6 @@ export async function getServerSideProps({ query: { q } }) {
 
   const posts = await resposne.json();
   return {
-    props: { posts },
+    props: { posts,date:new Date()+"" },
   };
 }
